@@ -1,142 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- =========================================================
+  CYBER-CYAN  |  "Data that drops jaws"
+  One-file, static, GitHub-Pages-ready
+  Inspired by: Riot Games, PETRONAS, CD Projekt RED
+========================================================== -->
+
 <head>
   <meta charset="utf-8">
-  <title>Fong Chong Yan — Data, Design & Motion</title>
+  <title>Fong Chong Yan — Data Alchemist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#000;
-      --text:#f5f5f7;
-      --sub:#86868b;
-      --accent:#0071e3;
-      --max:980px;
-      --ease:cubic-bezier(.4,0,.2,1);
+    :root {
+      --bg0: #000;
+      --bg1: #0a0a0f;
+      --accent1: #00c4ff;
+      /* PETRONAS cobalt */
+      --accent2: #ff0055;
+      /* Riot neon magenta */
+      --text: #e5e5e5;
+      --sub: #86868b;
+      --max: 1100px;
+      --ease: cubic-bezier(.4, 0, .2, 1);
     }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial;
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
     }
-    img{max-width:100%;display:block}
-    h1,h2,h3{letter-spacing:-.02em}
-    h1{font-size:clamp(2.8rem,7vw,5rem);line-height:1.05;font-weight:700}
-    h2{font-size:clamp(1.6rem,4vw,3rem);line-height:1.1;margin-bottom:.8em}
-    p{font-size:clamp(1rem,2vw,1.25rem);line-height:1.5;color:var(--sub)}
-    a{color:var(--accent);text-decoration:none}
-    section{width:100%;padding:clamp(4rem,12vh,10rem) 0}
-    .center{margin:0 auto;max-width:var(--max);padding:0 6vw}
-    .hero{
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
+
+    html {
+      scroll-behavior: smooth
     }
-    .hero-bg{
-      position:absolute;
-      inset:0;
-      background:url("https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=1920&q=80") center/cover;
-      will-change:transform;
-      transition:transform 1.2s var(--ease);
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg0);
+      color: var(--text);
+      overflow-x: hidden
     }
-    .hero h1,
-    .hero p{opacity:0;transform:translateY(40px);animation:fadeUp 1s var(--ease) forwards}
-    .hero p{animation-delay:.2s}
-    @keyframes fadeUp{to{opacity:1;transform:none}}
-    .slide-up{opacity:0;transform:translateY(60px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-    .slide-up.on{opacity:1;transform:none}
-    .grid{display:grid;gap:2rem}
-    @media(min-width:768px){.grid{grid-template-columns:1fr 1fr;align-items:center}}
-    .tag{display:inline-block;border:1px solid var(--sub);color:var(--sub);padding:.3em .8em;border-radius:999px;font-size:.8rem;margin:.2rem .1rem}
-    footer{text-align:center;padding:4rem 0;font-size:.8rem;color:var(--sub)}
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -.02em
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      margin-bottom: 1em
+    }
+
+    p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--sub)
+    }
+
+    a {
+      color: var(--accent1);
+      text-decoration: none
+    }
+
+    section {
+      width: 100%;
+      padding: clamp(5rem, 15vh, 12rem) 0;
+      position: relative
+    }
+
+    .center {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 6vw
+    }
+
+    /* ------ HERO ------ */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: #000
+    }
+
+    #particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2
+    }
+
+    .glitch {
+      animation: glitch 2.5s infinite;
+      text-shadow: 0 0 5px var(--accent1), 0 0 15px var(--accent2)
+    }
+
+    @keyframes glitch {
+
+      0%,
+      100% {
+        text-shadow: 0 0 5px var(--accent1), 0 0 15px var(--accent2)
+      }
+
+      20% {
+        text-shadow: -2px 0 var(--accent2), 2px 0 var(--accent1)
+      }
+
+      40% {
+        text-shadow: 2px 0 var(--accent2), -2px 0 var(--accent1)
+      }
+    }
+
+    /* ------ CARDS ------ */
+    .cards {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+    }
+
+    .card {
+      background: var(--bg1);
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      will-change: transform
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px var(--accent1), 0 0 40px var(--accent2)
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--accent1);
+      color: var(--accent1);
+      padding: .3em .8em;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .2rem .1rem
+    }
+
+    /* ------ FOOTER ------ */
+    footer {
+      text-align: center;
+      padding: 4rem 0;
+      font-size: .9rem;
+      color: var(--sub)
+    }
+
+    /* ------ UTILS ------ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease)
+    }
+
+    .fade-up.on {
+      opacity: 1;
+      transform: none
+    }
   </style>
 </head>
 
 <body>
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="center" style="position:relative;z-index:2">
-      <h1>Data that moves you.</h1>
-      <p>Hey, I'm Chong Yan — turning galaxies of numbers into seamless experiences.</p>
+    <canvas id="particles"></canvas>
+    <div class="hero__content">
+      <h1 class="glitch">Fong Chong Yan</h1>
+      <p>Data Alchemist & Platform Strategist</p>
+      <a href="#work" class="tag" style="margin-top:2rem;display:inline-block">Explore →</a>
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section id="intro">
-    <div class="center grid">
-      <div>
-        <h2>Platform strategist. Storyteller. Stargazer.</h2>
-        <p>Currently engineering tomorrow’s digital touch-points at Public Mutual. Past life: 95 % stellar classification accuracy on 900 GB of raw telescope data.</p>
-      </div>
-      <div class="slide-up">
-        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?auto=format&fit=crop&w=800&q=60" alt="abstract light">
+  <section id="work">
+    <div class="center">
+      <h2>Impact so far</h2>
+      <div class="cards">
+        <div class="card fade-up">
+          <h3>7 dashboards shipped</h3>
+          <p>Real-time KPI command centres across retail, social, volunteer & sustainability ops.</p>
+        </div>
+        <div class="card fade-up">
+          <h3>RM 3 M+ influenced</h3>
+          <p>Insights adopted by C-suite for FY-26 budget and sustainability roadmap.</p>
+        </div>
+        <div class="card fade-up">
+          <h3>95 % galaxy accuracy</h3>
+          <p>ML pipeline that chewed 900 GB of astronomical imagery—6 months of PhD time saved.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TOOLBOX -->
+  <section id="roles">
+    <div class="center">
+      <h2>Roles & Journeys</h2>
+
+      <h3 style="margin-top:3rem">Online Platform Executive — Public Mutual Berhad</h3>
+      <p>Kuala Lumpur • Sep 2025 – now</p>
+      <p>Modernising mobile & web legacy. UX workshops → epics → live NPS dashboards. Cross-functional squad of 15 across 4 time-zones.</p>
+
+      <h3 style="margin-top:2.5rem">Dataset & ML Volunteer — Real Good AI (CA non-profit)</h3>
+      <p>Remote • Sep 2025 – now</p>
+      <p>Ethical AI datasets, creative Art+AI assets, Streamer-Council fundraising. Because data should be inclusive.</p>
+
+      <h3 style="margin-top:2.5rem">Protégé Data Scientist — PETRONAS</h3>
+      <p>Kuala Lumpur • May – Sep 2025</p>
+      <p>4 Power BI suites, 70 % faster reporting, sustainability KPI engine. Board-level love.</p>
+
+      <h3 style="margin-top:2.5rem">ML Research Analyst — University of Toledo</h3>
+      <p>Ohio • Jan – Sep 2024</p>
+      <p>95 % galaxy classifier, 900 GB reduced, published findings, faculty grant booster.</p>
+    </div>
+  </section>
+
   <section id="tools">
     <div class="center">
-      <h2>Toolbox</h2>
-      <div>
-        <span class="tag">Power BI</span><span class="tag">Looker Studio</span><span class="tag">Python</span><span class="tag">Azure ML</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">Tableau</span><span class="tag">Project Mgmt</span><span class="tag">Digital Marketing</span>
-      </div>
+      <h2> Arsenal </h2>
+      <p>
+        <span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">SQL</span>
+        <span class="tag">Tableau</span><span class="tag">R Shiny</span><span class="tag">Azure ML</span><span class="tag">Looker Studio</span>
+        <span class="tag">Git</span><span class="tag">REST APIs</span><span class="tag">Figma</span><span class="tag">Jira</span>
+      </p>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="exp">
-    <div class="center">
-      <h2>Selected work</h2>
-
-      <h3 style="margin-top:2rem">Online Platform Executive — Public Mutual Berhad</h3>
-      <p class="slide-up">Cross-functional lead modernising mobile & web legacy. I translate user pain into epics, run UX workshops, and ship live KPI dashboards to the C-suite.</p>
-
-      <h3 style="margin-top:2rem">Data Protégé — PETRONAS</h3>
-      <p class="slide-up">Built four interactive Power BI suites—retail, social, volunteer, sustainability—cutting manual reporting time 70 % and informing FY-26 roadmap.</p>
-
-      <h3 style="margin-top:2rem">ML Analyst — University of Toledo</h3>
-      <p class="slide-up">Designed 95 %-accurate stellar classifier on 900 GB of FITS data. Reduced 300 → 40 features; results visualised in faculty grant proposals via R Shiny.</p>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="proj">
-    <div class="center grid">
-      <div class="slide-up">
-        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=60" alt="code">
-      </div>
-      <div>
-        <h2>Side quests.</h2>
-        <h3>Academic Collaborators Map</h3>
-        <p>400-researcher network visualised in WebGL. Used by dean for strategic partnership pitch.</p>
-        <h3 style="margin-top:1.2rem">University Ranking Simulator</h3>
-        <p>What-if engine on 5 k QS rows. Lets management test policy impact on ranking score in real time.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDU & Certs -->
   <section id="edu">
     <div class="center">
-      <h2>Credentials</h2>
-      <p><strong>B.S. Data Science (Astrophysics), Minor Physics</strong><br>University of Toledo • GPA 3.9 • May 2024</p>
-      <p>Outstanding Graduating Student, Data Science – Spring 2024<br>Global Seal of Biliteracy – English & Japanese<br>Microsoft + LinkedIn – Data Analysis & System Administration</p>
+      <h2>Education & Certs</h2>
+      <p><strong>B.S. Data Science (Magna Cum Laude)</strong> – University of Toledo<br>
+        Astrophysics concentration • Minor Physics • Cert. Japanese • GPA 3.9/4.0</p>
+      <p>Outstanding Graduating Student 2024 • Global Seal of Biliteracy (EN & JP) • Ohio House Certificate of Recognition</p>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
+  <section id="lang">
+    <div class="center">
+      <h2>Languages</h2>
+      <p>English • Malay • Mandarin • Cantonese • Hokkien (fluent) • Japanese (intermediate)</p>
+    </div>
+  </section>
+
+  <section id="connect">
     <div class="center" style="text-align:center">
-      <h2>Let’s connect.</h2>
+      <h2>Let’s build the future.</h2>
       <p>
-        <a href="https://www.linkedin.com/in/chongyanfong/" target="_blank">LinkedIn</a> •
+        <a href="https://linkedin.com/in/chongyanfong" target="_blank">LinkedIn</a> •
         <a href="mailto:fongchongyan@gmail.com">Email</a> •
         <a href="tel:+60183232575">+60 18-323 2575</a>
       </p>
@@ -144,20 +272,56 @@
   </section>
 
   <footer>
-    &copy; <span id="y"></span> Fong Chong Yan. Crafted in Kuala Lumpur.
+    &copy; <span id="y"></span> Fong Chong Yan. Made on Earth, deployed via GitHub Pages.
   </footer>
 
-  <!-- scroll-trigger motion -->
+  <!-- ------ WebGL particle galaxy ------ -->
   <script>
-    const io=new IntersectionObserver((e)=>{e.forEach((el)=>{if(el.isIntersecting)el.target.classList.add("on")})},{threshold:.2});
-    document.querySelectorAll('.slide-up').forEach((el)=>io.observe(el));
+    const c = document.getElementById('particles'),
+      x = c.getContext('2d');
+    let w = c.width = innerWidth,
+      h = c.height = innerHeight;
+    addEventListener('resize', () => {
+      w = c.width = innerWidth;
+      h = c.height = innerHeight;
+    });
+    const stars = [];
+    for (let i = 0; i < 300; i++) stars.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.2,
+      d: Math.random() * .5
+    });
 
-    // parallax hero background
-    const bg=document.querySelector('.hero-bg');
-    addEventListener('scroll',()=>{bg.style.transform=`translateY(${scrollY*.4}px)`},{passive:true});
+    function draw() {
+      x.clearRect(0, 0, w, h);
+      x.fillStyle = '#00c4ff';
+      x.shadowBlur = 15;
+      x.shadowColor = '#00c4ff';
+      stars.forEach(s => {
+        x.beginPath();
+        x.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        x.fill();
+        s.y += s.d;
+        if (s.y > h) s.y = 0;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    // scroll fades
+    const io = new IntersectionObserver((e) => {
+      e.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('on');
+      });
+    }, {
+      threshold: .2
+    });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
     // auto year
-    document.getElementById('y').textContent=new Date().getFullYear();
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
