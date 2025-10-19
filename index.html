@@ -123,4 +123,124 @@
             <div class="role-award">Kuala Lumpur</div>
           </div>
           <div class="role-desc">
-            Modernising mobile & web legacy. UX workshops → epics
+            Modernising mobile & web legacy. UX workshops → epics → live NPS dashboards. Cross-functional squad of 15 across 4 time-zones.
+          </div>
+          <div class="awards-bar">
+            <span class="award-tag">UX Research</span><span class="award-tag">Product Strategy</span><span class="award-tag">Digital Innovation</span>
+          </div>
+        </div>
+
+        <!-- Real Good AI -->
+        <div class="role-card fade-up">
+          <div class="role-header">
+            <div>
+              <div class="role-title">Dataset & ML Volunteer</div>
+              <div class="role-date">Real Good AI (CA non-profit) • Sep 2025 – now</div>
+            </div>
+            <div class="role-award">Remote</div>
+          </div>
+          <div class="role-desc">
+            Ethical AI datasets, creative Art+AI assets, Streamer-Council fundraising. Because data should be inclusive.
+          </div>
+          <div class="awards-bar">
+            <span class="award-tag">Ethical AI</span><span class="award-tag">Open-Source</span><span class="award-tag">Community Building</span>
+          </div>
+        </div>
+
+        <!-- PETRONAS -->
+        <div class="role-card fade-up">
+          <div class="role-header">
+            <div>
+              <div class="role-title">Protégé Data Scientist</div>
+              <div class="role-date">PETRONAS • May – Sep 2025</div>
+            </div>
+            <div class="role-award">Kuala Lumpur</div>
+          </div>
+          <div class="role-desc">
+            4 Power BI suites, 70 % faster reporting, sustainability KPI engine. Board-level love.
+          </div>
+          <div class="awards-bar">
+            <span class="award-tag">Power BI</span><span class="award-tag">Sustainability KPI</span><span class="award-tag">Board Presentation</span>
+          </div>
+        </div>
+
+        <!-- UToledo -->
+        <div class="role-card fade-up">
+          <div class="role-header">
+            <div>
+              <div class="role-title">ML Research Analyst</div>
+              <div class="role-date">University of Toledo • Jan – Sep 2024</div>
+            </div>
+            <div class="role-award">Ohio</div>
+          </div>
+          <div class="role-desc">
+            95 % galaxy classifier, 900 GB reduced, published findings, faculty grant booster.
+          </div>
+          <div class="awards-bar">
+            <span class="award-tag">95 % Accuracy</span><span class="award-tag">Published</span><span class="award-tag">900 GB Pipeline</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- EDU & CERTS ---------- -->
+  <section id="edu">
+    <div class="center">
+      <h2>Education & Certs</h2>
+      <p><strong>B.S. Data Science (Magna Cum Laude)</strong> – University of Toledo<br>
+        Astrophysics concentration • Minor Physics • Cert. Japanese • GPA 3.9/4.0</p>
+      <div class="awards-bar">
+        <span class="award-tag">Outstanding Graduating Student 2024</span>
+        <span class="award-tag">Global Seal of Biliteracy (EN & JP)</span>
+        <span class="award-tag">Ohio House Certificate of Recognition</span>
+        <span class="award-tag">Microsoft Data Analysis Cert</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CONNECT ---------- -->
+  <section id="connect">
+    <div class="center" style="text-align:center">
+      <h2>Let’s build the future.</h2>
+      <p>
+        <a href="https://linkedin.com/in/chongyanfong" target="_blank">LinkedIn</a> •
+        <a href="mailto:fongchongyan@gmail.com">Email</a> •
+        <a href="tel:+60183232575">+60 18-323 2575</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="y"></span> Fong Chong Yan. Made on Earth, deployed via GitHub Pages.
+  </footer>
+
+  <!-- ------ WebGL particle galaxy ------ -->
+  <script>
+    const c = document.getElementById('particles'),
+      x = c.getContext('2d');
+    let w = c.width = innerWidth,
+      h = c.height = innerHeight;
+    addEventListener('resize', () => { w = c.width = innerWidth; h = c.height = innerHeight; });
+    const stars = [];
+    for (let i = 0; i < 300; i++) stars.push({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.2, d: Math.random() * .5 });
+    function draw() {
+      x.clearRect(0, 0, w, h);
+      x.fillStyle = '#00c4ff';
+      x.shadowBlur = 15;
+      x.shadowColor = '#00c4ff';
+      stars.forEach(s => { x.beginPath(); x.arc(s.x, s.y, s.r, 0, Math.PI * 2); x.fill(); s.y += s.d; if (s.y > h) s.y = 0; });
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    // scroll fades
+    const io = new IntersectionObserver((e) => { e.forEach(el => { if (el.isIntersecting) el.target.classList.add('on'); }); }, { threshold: .2 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+    // auto year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
