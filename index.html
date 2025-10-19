@@ -1,194 +1,163 @@
-<!-- 1. Paste everything below into index.md (or README.md for GitHub Pages) -->
-<!-- 2. Enable “GitHub Pages” in repo settings → pick “main branch” -->
-<!-- 3. Your site goes live at https://YOURUSERNAME.github.io -->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Fong Chong Yan – Data Storyteller & Platform Strategist</title>
+  <meta charset="utf-8">
+  <title>Fong Chong Yan — Data, Design & Motion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root{
-      --accent:#0077b5;
-      --bg:#f7f9fc;
-      --text:#222;
-      --card:#fff;
+      --bg:#000;
+      --text:#f5f5f7;
+      --sub:#86868b;
+      --accent:#0071e3;
+      --max:980px;
+      --ease:cubic-bezier(.4,0,.2,1);
     }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial;
       background:var(--bg);
       color:var(--text);
-      line-height:1.6;
+      overflow-x:hidden;
     }
-    header{
-      background:var(--accent);
-      color:#fff;
-      padding:3rem 1.5rem 4rem;
+    img{max-width:100%;display:block}
+    h1,h2,h3{letter-spacing:-.02em}
+    h1{font-size:clamp(2.8rem,7vw,5rem);line-height:1.05;font-weight:700}
+    h2{font-size:clamp(1.6rem,4vw,3rem);line-height:1.1;margin-bottom:.8em}
+    p{font-size:clamp(1rem,2vw,1.25rem);line-height:1.5;color:var(--sub)}
+    a{color:var(--accent);text-decoration:none}
+    section{width:100%;padding:clamp(4rem,12vh,10rem) 0}
+    .center{margin:0 auto;max-width:var(--max);padding:0 6vw}
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       text-align:center;
-      clip-path:polygon(0 0,100% 0,100% 90%,0 100%);
+      position:relative;
     }
-    header h1{font-size:2.2rem;margin:.5rem 0}
-    header p{font-size:1.1rem;opacity:.9}
-    .badge{
-      display:inline-block;
-      background:rgba(255,255,255,.2);
-      padding:.25rem .75rem;
-      border-radius:999px;
-      font-size:.8rem;
-      margin:.25rem .15rem;
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background:url("https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=1920&q=80") center/cover;
+      will-change:transform;
+      transition:transform 1.2s var(--ease);
     }
-    .container{
-      max-width:900px;
-      margin:-2rem auto 2rem;
-      padding:0 1rem;
-    }
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      padding:1.5rem;
-      margin-bottom:1.5rem;
-      box-shadow:0 4px 12px rgba(0,0,0,.05);
-    }
-    h2{margin-top:0;font-size:1.4rem;color:var(--accent)}
-    ul{padding-left:1.2rem}
-    .skills{display:flex;flex-wrap:wrap;gap:.5rem}
-    .skills li{
-      background:var(--accent);
-      color:#fff;
-      padding:.3rem .7rem;
-      border-radius:4px;
-      font-size:.8rem;
-    }
-    .contact a{
-      color:var(--accent);
-      text-decoration:none;
-      margin-right:1rem;
-    }
-    footer{
-      text-align:center;
-      padding:2rem 1rem;
-      font-size:.8rem;
-      opacity:.6;
-    }
-    @media(min-width:600px){
-      header{padding:4rem 2rem 5rem}
-      header h1{font-size:2.8rem}
-    }
+    .hero h1,
+    .hero p{opacity:0;transform:translateY(40px);animation:fadeUp 1s var(--ease) forwards}
+    .hero p{animation-delay:.2s}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    .slide-up{opacity:0;transform:translateY(60px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .slide-up.on{opacity:1;transform:none}
+    .grid{display:grid;gap:2rem}
+    @media(min-width:768px){.grid{grid-template-columns:1fr 1fr;align-items:center}}
+    .tag{display:inline-block;border:1px solid var(--sub);color:var(--sub);padding:.3em .8em;border-radius:999px;font-size:.8rem;margin:.2rem .1rem}
+    footer{text-align:center;padding:4rem 0;font-size:.8rem;color:var(--sub)}
   </style>
 </head>
 
-<header>
-  <h1>Fong Chong Yan</h1>
-  <p>Online Platform Executive & Data Storyteller</p>
-  <div>
-    <span class="badge">Power BI</span>
-    <span class="badge">Python</span>
-    <span class="badge">Looker Studio</span>
-    <span class="badge">Azure ML</span>
-  </div>
-</header>
-
-<div class="container">
-
-  <!-- ABOUT -->
-  <section class="card">
-    <h2>Hello, I'm Chong Yan 👋</h2>
-    <p>
-      I turn messy data into intuitive dashboards and scalable digital platforms.  
-      Currently an <strong>Online Platform Executive at Public Mutual Berhad</strong>, I bridge business, UX, and engineering teams to re-imagine legacy systems.  
-      Past life: built 95 %-accurate ML pipelines on 900 GB of astronomical data at the University of Toledo.
-    </p>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="center" style="position:relative;z-index:2">
+      <h1>Data that moves you.</h1>
+      <p>Hey, I'm Chong Yan — turning galaxies of numbers into seamless experiences.</p>
+    </div>
   </section>
 
-  <!-- QUICK LINKS -->
-  <section class="card contact">
-    <h2>Find me</h2>
-    <a href="https://www.linkedin.com/in/chongyanfong/" target="_blank">LinkedIn</a>
-    <a href="mailto:fongchongyan@gmail.com">Email</a>
-    <a href="tel:+60183232575">+60 18-323 2575</a>
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="center grid">
+      <div>
+        <h2>Platform strategist. Storyteller. Stargazer.</h2>
+        <p>Currently engineering tomorrow’s digital touch-points at Public Mutual. Past life: 95 % stellar classification accuracy on 900 GB of raw telescope data.</p>
+      </div>
+      <div class="slide-up">
+        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?auto=format&fit=crop&w=800&q=60" alt="abstract light">
+      </div>
+    </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="card">
-    <h2>Toolbox</h2>
-    <ul class="skills">
-      <li>Power BI</li><li>Tableau</li><li>Looker Studio</li>
-      <li>Python</li><li>R</li><li>SQL</li><li>Azure ML</li>
-      <li>Google Analytics</li><li>SAS</li><li>SPSS</li>
-      <li>Project Management</li><li>Digital Marketing</li>
-    </ul>
+  <!-- TOOLBOX -->
+  <section id="tools">
+    <div class="center">
+      <h2>Toolbox</h2>
+      <div>
+        <span class="tag">Power BI</span><span class="tag">Looker Studio</span><span class="tag">Python</span><span class="tag">Azure ML</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">Tableau</span><span class="tag">Project Mgmt</span><span class="tag">Digital Marketing</span>
+      </div>
+    </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="card">
-    <h2>Experience</h2>
+  <section id="exp">
+    <div class="center">
+      <h2>Selected work</h2>
 
-    <h3>Online Platform Executive – Public Mutual Berhad</h3>
-    <em>Sep 2025 – present | Kuala Lumpur</em>
-    <ul>
-      <li>Leading cross-functional squad to modernise mobile &amp; web platforms; translate user pain-points into epics and user stories.</li>
-      <li>Facilitate UX workshops, map customer journeys, and own the backlog for phased roll-outs.</li>
-      <li>Define success metrics (NPS, adoption, funnel drop-off) and build live dashboards for C-suite.</li>
-    </ul>
+      <h3 style="margin-top:2rem">Online Platform Executive — Public Mutual Berhad</h3>
+      <p class="slide-up">Cross-functional lead modernising mobile & web legacy. I translate user pain into epics, run UX workshops, and ship live KPI dashboards to the C-suite.</p>
 
-    <h3>Protégé (Data & Analytics) – PETRONAS</h3>
-    <em>May 2025 – Sep 2025</em>
-    <ul>
-      <li>Shipped 4 interactive Power BI dashboards (retail, social, volunteer, sustainability) used by 200+ staff.</li>
-      <li>Automated data refreshes via SharePoint + Power Automate, cutting manual report time by 70 %.</li>
-      <li>Presented insights to senior stakeholders; recommendations adopted in FY-26 sustainability roadmap.</li>
-    </ul>
+      <h3 style="margin-top:2rem">Data Protégé — PETRONAS</h3>
+      <p class="slide-up">Built four interactive Power BI suites—retail, social, volunteer, sustainability—cutting manual reporting time 70 % and informing FY-26 roadmap.</p>
 
-    <h3>Machine Learning Analyst – University of Toledo</h3>
-    <em>Jan 2024 – Sep 2024</em>
-    <ul>
-      <li>Engineered 95 %-accurate classifier for stellar object detection on 900 GB FITS files.</li>
-      <li>Reduced feature-space from 300 → 40 variables via PCA &amp; Boruta; training time ↓ 60 %.</li>
-      <li>Visualised results in interactive R Shiny app adopted by physics faculty for grant proposals.</li>
-    </ul>
-  </section>
-
-  <!-- PROJECT HIGHLIGHTS -->
-  <section class="card">
-    <h2>Side Quests 🎮</h2>
-
-    <h3>Academic Collaborators Map – R Shiny</h3>
-    <p>Scraped 400+ research profiles → interactive globe visualising collaboration hotspots; dean used for strategic partnership pitch.
-
-    <h3>University Ranking Simulator – Power BI</h3>
-    <p>ETL’d 5 k rows of QS data; built “what-if” parameters letting management test policy changes on ranking score in real time.
-  </section>
-
-  <!-- EDUCATION & CERTS -->
-  <section class="card">
-    <h2>Education &amp; Certs</h2>
-    <p><strong>B.S. Data Science (Astrophysics concentration), Minor Physics</strong><br>
-    University of Toledo • GPA 3.9 • May 2024</p>
-
-    <ul>
-      <li>Outstanding Graduating Student, Data Science Program – Spring 2024</li>
-      <li>Global Seal of Biliteracy – English &amp; Japanese</li>
-      <li>Microsoft + LinkedIn: Data Analysis &amp; System Administration</li>
-    </ul>
-  </section>
-
-  <!-- LANGUAGES -->
-  <section class="card">
-    <h2>Languages</h2>
-    <p>English • Malay • Mandarin • Cantonese • Hokkien (all fluent); Japanese (intermediate)</p>
-  </section>
-
-  <!-- EMBED LINKEDIN BADGE -->
-  <section class="card">
-    <h2>LinkedIn Live</h2>
-    <div style="height:320px;overflow:hidden;border-radius:8px;">
-      <iframe src="https://www.linkedin.com/in/chongyanfong/" width="100%" height="100%" frameborder="0"></iframe>
+      <h3 style="margin-top:2rem">ML Analyst — University of Toledo</h3>
+      <p class="slide-up">Designed 95 %-accurate stellar classifier on 900 GB of FITS data. Reduced 300 → 40 features; results visualised in faculty grant proposals via R Shiny.</p>
     </div>
-    <p style="font-size:.75rem">If frame is blocked, click the link in “Find me” section above.</p>
   </section>
 
-</div>
+  <!-- PROJECTS -->
+  <section id="proj">
+    <div class="center grid">
+      <div class="slide-up">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=60" alt="code">
+      </div>
+      <div>
+        <h2>Side quests.</h2>
+        <h3>Academic Collaborators Map</h3>
+        <p>400-researcher network visualised in WebGL. Used by dean for strategic partnership pitch.</p>
+        <h3 style="margin-top:1.2rem">University Ranking Simulator</h3>
+        <p>What-if engine on 5 k QS rows. Lets management test policy impact on ranking score in real time.</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  Made with ❤️ and Markdown. Last updated – 07 Oct 2025
-</footer>
+  <!-- EDU & Certs -->
+  <section id="edu">
+    <div class="center">
+      <h2>Credentials</h2>
+      <p><strong>B.S. Data Science (Astrophysics), Minor Physics</strong><br>University of Toledo • GPA 3.9 • May 2024</p>
+      <p>Outstanding Graduating Student, Data Science – Spring 2024<br>Global Seal of Biliteracy – English & Japanese<br>Microsoft + LinkedIn – Data Analysis & System Administration</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="center" style="text-align:center">
+      <h2>Let’s connect.</h2>
+      <p>
+        <a href="https://www.linkedin.com/in/chongyanfong/" target="_blank">LinkedIn</a> •
+        <a href="mailto:fongchongyan@gmail.com">Email</a> •
+        <a href="tel:+60183232575">+60 18-323 2575</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="y"></span> Fong Chong Yan. Crafted in Kuala Lumpur.
+  </footer>
+
+  <!-- scroll-trigger motion -->
+  <script>
+    const io=new IntersectionObserver((e)=>{e.forEach((el)=>{if(el.isIntersecting)el.target.classList.add("on")})},{threshold:.2});
+    document.querySelectorAll('.slide-up').forEach((el)=>io.observe(el));
+
+    // parallax hero background
+    const bg=document.querySelector('.hero-bg');
+    addEventListener('scroll',()=>{bg.style.transform=`translateY(${scrollY*.4}px)`},{passive:true});
+
+    // auto year
+    document.getElementById('y').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
